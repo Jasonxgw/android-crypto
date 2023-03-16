@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.example.testxp"
+        minSdkVersion 25
+        targetSdkVersion 30
+        versionCode 2
+        versionName "2.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+//        ndk {
+//            moduleName "aesecb"         //生成的so名字
+//            abiFilters "armeabi", "armeabi-v7a", "x86","arm64-v8a" //输出指定三种abi体系结构下的so库。
+////            stl "stlport_static"    //打开.c 的 debug , 下面第 4 点会讲到
+//        }
+
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    buildTypes {
+        debug {
+            jniDebuggable true //此句不加在真机上 debug 不受影响，但是在虚拟机上不能 debug
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        // This is already included in Tink.
+        exclude group: 'com.google.code.findbugs'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    // Tink 1.0.0 for Android.
+    compile 'com.google.crypto.tink:tink-android:1.0.0'
+    compile project(':mylibrary')
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_encryption_context"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="请输入加密内容" />
+
+            <Button
+                android:id="@+id/btn_aes128_gcm_encryption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="AES128_GCM加密" />
+
+            <TextView
+                android:id="@+id/tv_aes128_gcm_encryption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp" />
+
+            <Button
+                android:id="@+id/btn_aes128_gcm_decode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="AES128_GCM解密" />
+
+            <TextView
+                android:id="@+id/tv_aes128_gcm_decode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp" />
+
+            <Button
+                android:id="@+id/btn_aes256_gcm_encryption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="AES256_GCM加密" />
+
+            <TextView
+                android:id="@+id/tv_aes256_gcm_encryption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp" />
+
+            <Button
+                android:id="@+id/btn_aes256_gcm_decode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="AES256_GCM解密" />
+
+            <TextView
+                android:id="@+id/tv_aes256_gcm_decode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</FrameLayout>
